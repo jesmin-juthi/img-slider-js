@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS IMG SLIDER</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slides">
+
+                <!-- navigation botton -->
+
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+
+                <!-- next and prev button -->
+
+                <input type="radio" name="radio-btn" id="next">
+                <input type="radio" name="radio-btn" id="prev">
+
+                <!-- img slider -->
+
+                <div class="slide first">
+                	<img src="img/1.jpg" alt="">
+                </div>
+                <div class="slide">
+                	<img src="img/2.jpg" alt="">
+                </div>
+                <div class="slide">
+                	<img src="img/3.jpg" alt="">
+                </div>
+                <div class="slide">
+                	<img src="img/4.jpg" alt="">
+                </div>
+                
+
+            </div>
+            <!-- manually navigation section -->
+            <div class="manual-navigation">
+            	<label for="radio1" class="manual-btn" onclick="displaySlide(1)"></label>
+            	<label for="radio2" class="manual-btn" onclick="displaySlide(2)"></label>
+            	<label for="radio3" class="manual-btn" onclick="displaySlide(3)"></label>
+            	<label for="radio4" class="manual-btn" onclick="displaySlide(4)"></label>
+            </div>
+
+            <!--  next prev navigation section -->
+            <div class="next-prev">
+            	<label for="next" class="next-btn" onclick="nextslide(1)">></label>
+            	<label for="prev" class="prev-btn" onclick="prevslide(-1)"><</label>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+    	var number = 1;
+
+    	setInterval(function(){
+
+    		document.getElementById('radio' + number).checked = true;
+    		number++;
+
+    		if (number>4) {
+    			number = 1;
+    		}
+    	},2000);
+
+    	// first active slider
+    	// var first = document.getElementsByClassName('first');
+
+    	// setMargin(1);
+
+    	// var active = 0;
+    	// function displaySlide(n){
+    	// 	active = n;
+
+    	// 	setMargin(n);
+    	// }
+
+    	// function setMargin(num){
+    	// 	if (num == 1) {
+    	// 		first[0].style.marginLeft = '0%';
+    	// 	}
+    	// 	if (num == 2) {
+    	// 		first[0].style.marginLeft = '-20%';
+    	// 	}
+    	// 	if (num == 3) {
+    	// 		first[0].style.marginLeft = '-40%';
+    	// 	}
+    	// 	if (num == 4) {
+    	// 		first[0].style.marginLeft = '-60%';
+    	// 	}
+    	// }
+    	function nextslide(p){
+    		active = active + p;
+    		displaySlide(active);
+    	}
+    	function prevslide(q){
+    		active = active + q;
+    		displaySlide(active);
+    	}
+    </script>
+
+
+</body>
+
+</html>
